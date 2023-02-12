@@ -13,7 +13,7 @@ import { storesType } from '@containers/reducers';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { FETCH_SEARCH } from '../model';
+import { FETCH_SEARCH, SET_SEARCH_RESULT } from '../model';
 import { searchFormField as initSearchFormField } from '../model/data';
 import { PageRoutes } from '../model/types';
 import { initPageRoutes, replaceChinese } from '../service/pageService';
@@ -64,6 +64,7 @@ const SearchForm = (props: Props) => {
 
     const handleClearSearchForm = () => {
         reset({ ...initSearchFormField });
+        dispatch(SET_SEARCH_RESULT([]));
         handleRefreshMainPage(setPageRoutes, initPageRoutes);
     };
 

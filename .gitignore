@@ -2,7 +2,7 @@
 node_modules
 
 # production
-dist/
+dist
 
 # OS-specific files
 .DS_Store
