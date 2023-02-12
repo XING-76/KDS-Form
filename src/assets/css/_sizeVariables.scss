@@ -1,0 +1,115 @@
+$breakpoint: (
+    pc-large: 1200px,
+    pc: 992px,
+    pad: 768px,
+    phone: 576px,
+    phone-small: 300px
+);
+
+$layout: (
+    header-height: 80px,
+    breadcrumbs-height: 40px,
+    sidebar-width: 280px,
+    sidebar-shrink-width: 60px,
+    custom-sidebar-width: var(--custom-sideBarWidth),
+    calendar-width: 360px,
+    'sidebar': (
+        'searchBar-width': 45px,
+        'searchBar-padding': 8px,
+        'tab-padding': 16px 8px
+    ),
+    'header': (
+        'option-width': 40px
+    ),
+    'navigation': (
+        'width': 80px,
+        'button-width': 48px,
+        'padding': 16px,
+        'button-margin': 8px
+    ),
+    'calendar': (
+        'padding': 24px,
+        'width': 312px,
+        'height': 352px,
+        'title': 40px,
+        'record-title': 40px
+    ),
+    'columnSelector': (
+        'height': 200px,
+        'selectAll': 50px
+    ),
+    'imagePreview': (
+        'height': 360px,
+        'iconWidth': 32px,
+        'border': 10px
+    )
+);
+
+$borderRadius: (
+    min-small: 2px,
+    small: 4px,
+    light-small: 6px,
+    default: 8px,
+    large: 12px,
+    extra-large: 16px
+);
+
+$border: (
+    input: 1px solid #c7c7c7,
+    'checkbox': 2px solid #4b6ba5,
+    board: 1px solid #c7c7c7,
+    board-title: 1px solid #d0d0d0,
+    pagination: 1px solid #e8e8e8,
+    separate: 1px solid #ccc,
+    calendar-button: 1px solid #eee
+);
+
+$grid: (
+    row-margin: calc(var(--custom-row-padding) * 2),
+    row-padding: var(--custom-row-padding)
+);
+
+$label: (
+    custom-width: var(--custom-labelWidth)
+);
+
+$button: (
+    'default-height': 40px,
+    'default-width': 96px
+);
+
+$calendar: (
+    'day-width': 32px,
+    'day-margin': 3px
+);
+
+@mixin font-size($sizeValue) {
+    font-size: $sizeValue + rem;
+}
+
+//rem
+$fontSize: (
+    max-large: 2,
+    extra-large: 1.75,
+    medium-large: 1.625,
+    large: 1.5,
+    medium: 1.375,
+    normal: 1.25,
+    light-small: 1.1875,
+    small: 1.125,
+    extra-small: 1,
+    extra-extra-small: 0.875,
+    min-small: 0.75,
+    custom: var(--custom-fontSize),
+    icon: 2.3
+);
+
+$fontWeight: (
+    'input': 400,
+    'board-title': 500,
+    'pagination-title': 500,
+    'tableTitle': 400
+);
+
+//font
+$custom-fontSize: var(--custom-fontSize);

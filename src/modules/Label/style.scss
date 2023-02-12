@@ -1,0 +1,16 @@
+@import '~@assets/css/variables';
+
+.label {
+    color: map-get($color, 'global', 'dark-grey');
+    white-space: nowrap;
+    min-width: map-get($label, 'custom-width');
+    font-size: $custom-fontSize;
+
+    &.required {
+        &:after {
+            content: '*';
+            color: map-get($color, 'status', 'error');
+            margin-left: 1px;
+        }
+    }
+}

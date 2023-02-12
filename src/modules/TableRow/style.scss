@@ -1,0 +1,13 @@
+@import '~@assets/css/variables';
+
+.table__row {
+    display: table-row;
+    width: 100%;
+    cursor: pointer;
+
+    &.table__row_sticky {
+        position: sticky;
+        top: 0;
+        background-color: map-get($color, 'board', 'background');
+    }
+}

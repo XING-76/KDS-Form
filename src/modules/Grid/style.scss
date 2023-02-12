@@ -1,0 +1,89 @@
+@import '~@assets/css/variables';
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    &.row_fourInputs {
+        .input__wrapper {
+            min-width: 100px;
+        }
+    }
+
+    &.row_threeInputs {
+        .input__wrapper {
+            min-width: 100px;
+        }
+    }
+}
+
+.grid__col {
+    display: flex;
+    align-items: center;
+    margin: map-get($grid, 'row-padding') 8px;
+    width: 100%;
+
+    &.goto {
+        display: flex;
+        justify-content: center;
+        @include font-size(map-get($fontSize, 'extra-extra-small'));
+
+        span {
+            margin-top: 24px;
+        }
+    }
+}
+
+@mixin col-generate($size) {
+    @for $i from 1 through 12 {
+        .grid__col#{$size}_#{$i} {
+            flex-grow: 0;
+            flex-basis: calc(-16px + 100% *#{$i}* 1 / 12);
+        }
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+    @include col-generate('sm');
+    .grid__col {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 300px) {
+    @include col-generate('xs');
+}
+
+@media screen and (min-width: 576px) {
+    @include col-generate('sm');
+}
+
+@media screen and (min-width: 960px) {
+    @include col-generate('md');
+    .sidebarOpen {
+        @include col-generate('sm');
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    @include col-generate('lg');
+    .sidebarOpen {
+        @include col-generate('md');
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    @include col-generate('xl');
+    .sidebarOpen {
+        @include col-generate('lg');
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    @include col-generate('xxl');
+    .sidebarOpen {
+        @include col-generate('xl');
+    }
+}

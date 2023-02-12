@@ -1,0 +1,49 @@
+@import '~@assets/css/variables';
+
+.table__body {
+    display: table-row-group;
+
+    .table__row {
+        display: table-row;
+
+        .table__cell {
+            background-color: map-get($color, 'global', 'white');
+            cursor: pointer;
+            border: 0.5px solid map-get($color, 'table', 'table-grid');
+        }
+
+        &:last-child {
+            border-radius: 0 0 4px 4px;
+
+            .table__cell {
+                &:first-of-type {
+                    border-radius: 0 0 0 4px;
+                }
+
+                &:last-of-type {
+                    border-radius: 0 0 4px 0;
+                }
+            }
+        }
+
+        &:hover {
+            .table__cell {
+                background-color: map-get($color, 'table', 'hover');
+            }
+        }
+    }
+
+    &.noData {
+        display: table-caption;
+        caption-side: bottom;
+        text-align: center;
+        width: 100%;
+        padding: 24px;
+        vertical-align: middle;
+        background-color: map-get($color, 'global', 'white');
+        @include font-size(map-get($fontSize, 'extra-small'));
+        box-shadow: map-get($color, 'shadow', 'tableRow');
+        border-radius: 0 0 4px 4px;
+        border: 0.5px solid map-get($color, 'table', 'table-grid');
+    }
+}

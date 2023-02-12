@@ -1,0 +1,62 @@
+@import '~@assets/css/variables';
+
+.table__cell {
+    display: table-cell;
+    height: 50px;
+    vertical-align: middle;
+    color: map-get($color, 'input', 'text');
+    position: relative;
+
+    .checkBox__wrapper {
+        display: block;
+    }
+
+    &.table__cell_function {
+        @include font-size(map-get($fontSize, 'large'));
+
+        button {
+            margin: 0;
+            width: 30px;
+            height: 20px;
+            padding: 2px;
+            color: map-get($color, 'input', 'disabled');
+
+            &:hover {
+                color: darken(map-get($color, 'input', 'text'), 10%);
+            }
+        }
+    }
+
+    .resize-handle {
+        display: block;
+        position: absolute;
+        cursor: col-resize;
+        width: 7px;
+        right: 0;
+        top: 0;
+        border-right: 2px solid transparent;
+        z-index: map-get($order, 'table', 'freezeColumn');
+
+        &:hover {
+            border-color: aquamarine;
+        }
+
+        &.showHighlight {
+            border-color: aquamarine;
+        }
+    }
+
+    .table__cell_childrenContainer {
+        text-align: center;
+        padding: 0 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: normal;
+
+        & .table__buttons {
+            display: flex;
+            align-items: center;
+        }
+    }
+}

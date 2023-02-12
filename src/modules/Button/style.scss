@@ -1,0 +1,171 @@
+@import '~@assets/css/variables';
+
+$button-config: (
+    default: (
+        class: 'default',
+        bg_color: transparent,
+        text_color: map-get($color, 'global', 'primary'),
+        border_color: transparent
+    ),
+    primary: (
+        class: 'primary',
+        bg_color: map-get($color, 'global', 'primary'),
+        text_color: map-get($color, 'global', 'white'),
+        border_color: map-get($color, 'global', 'primary')
+    ),
+    secondary: (
+        class: 'secondary',
+        bg_color: map-get($color, 'global', 'white'),
+        text_color: map-get($color, 'global', 'primary'),
+        border_color: map-get($color, 'global', 'primary')
+    ),
+    cancel: (
+        class: 'cancel',
+        bg_color: transparent,
+        text_color: map-get($color, 'global', 'text'),
+        border_color: map-get($color, 'button', 'cancel')
+    ),
+    error: (
+        class: 'error',
+        bg_color: map-get($color, 'status', 'error'),
+        text_color: map-get($color, 'global', 'white'),
+        border_color: map-get($color, 'status', 'error')
+    ),
+    disabled: (
+        class: 'disabled',
+        bg_color: map-get($color, 'global', 'light-grey'),
+        text_color: map-get($color, 'global', 'text'),
+        border_color: transparent
+    ),
+    status1: (
+        class: 'status1',
+        bg_color: map-get($status, 'S1'),
+        text_color: map-get($color, 'global', 'white'),
+        border_color: map-get($status, 'S1')
+    ),
+    status2: (
+        class: 'status2',
+        bg_color: map-get($status, 'S2'),
+        text_color: map-get($color, 'global', 'white'),
+        border_color: map-get($status, 'S2')
+    ),
+    status3: (
+        class: 'status3',
+        bg_color: map-get($status, 'S3'),
+        text_color: map-get($color, 'global', 'white'),
+        border_color: map-get($status, 'S3')
+    ),
+    status4: (
+        class: 'status4',
+        bg_color: map-get($status, 'S4'),
+        text_color: map-get($color, 'global', 'white'),
+        border_color: map-get($status, 'S4')
+    )
+);
+
+$borderRadius-config: (
+    default: (
+        size: 'default',
+        border_radius: 8px
+    ),
+    sm: (
+        size: 'sm',
+        border_radius: 4px
+    ),
+    md: (
+        size: 'md',
+        border_radius: 8px
+    ),
+    lg: (
+        size: 'lg',
+        border_radius: 40px
+    )
+);
+
+%button {
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: map-get($transition, 'default');
+    @include font-size(map-get($fontSize, 'extra-small'));
+}
+
+@each $name, $value in $button-config {
+    $class: map-get($value, class);
+    $bg_color: map-get($value, bg_color);
+    $text_color: map-get($value, text_color);
+    $border_color: map-get($value, border_color);
+
+    .button-#{$class} {
+        @extend %button;
+        background-color: $bg_color;
+        color: $text_color;
+        border: 1px solid $border_color;
+        min-width: map-get($button, 'default-width');
+
+        &:disabled {
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    }
+}
+
+@each $name, $value in $borderRadius-config {
+    $size: map-get($value, size);
+    $border_radius: map-get($value, border_radius);
+
+    .borderRadius-#{$size} {
+        @extend %button;
+        border-radius: $border_radius;
+    }
+}
+
+.button-primary {
+    &:hover {
+        background-color: map-get($color, 'button', 'hover');
+    }
+    &:focus {
+        background-color: map-get($color, 'button', 'focus');
+    }
+}
+
+.button-secondary {
+    &:hover {
+        border-color: map-get($color, 'button', 'hover');
+        color: map-get($color, 'button', 'hover');
+    }
+    &:focus {
+        border-color: map-get($color, 'button', 'focus');
+        color: map-get($color, 'button', 'focus');
+    }
+}
+
+.button-cancel {
+    &:hover,
+    :focus {
+        border-color: map-get($color, 'button', 'cancel-hover');
+    }
+}
+
+.button-error {
+    &:hover,
+    :focus {
+        background-color: map-get($color, 'global', 'white');
+        color: map-get($color, 'status', 'error');
+    }
+}
+
+.button-default {
+    padding: 0;
+    min-width: auto;
+}
+
+.tableIcon {
+    width: 30px;
+    height: 48px;
+    line-height: 48px;
+    border: none;
+    @include font-size(map-get($fontSize, 'normal'));
+    margin-left: 8px;
+}

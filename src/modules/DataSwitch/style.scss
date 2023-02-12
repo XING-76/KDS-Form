@@ -1,0 +1,32 @@
+@import '~@assets/css/variables';
+
+.dataSwitch {
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .arrowLeft {
+            transform: rotate(90deg);
+            margin-right: 16px;
+            cursor: pointer;
+            @include font-size(map-get($fontSize, 'large'));
+        }
+
+        .arrowRight {
+            transform: rotate(-90deg);
+            margin-left: 16px;
+            cursor: pointer;
+            @include font-size(map-get($fontSize, 'large'));
+        }
+
+        .lastEditable {
+            color: map-get($color, 'global', 'light-grey');
+            cursor: initial;
+        }
+
+        div {
+            @include font-size(map-get($fontSize, 'extra-small'));
+        }
+    }
+}

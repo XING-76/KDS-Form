@@ -1,0 +1,48 @@
+@import '~@assets/css/variables';
+
+.table__wrapper {
+    box-shadow: map-get($color, 'shadow', 'table');
+    overflow: hidden;
+    @include font-size(map-get($fontSize, 'extra-small'));
+
+    .table__scroll {
+        overflow-x: auto;
+        overflow-y: hidden;
+        border-radius: 4px;
+    }
+
+    .table {
+        display: table;
+        border-top: none;
+        width: 100%;
+
+        & .checkMark {
+            background-color: map-get($color, 'global', 'white');
+        }
+
+        &.table__column_sticky {
+            .table__header {
+                .table__cell {
+                    &:first-child {
+                        position: sticky;
+                        left: 0;
+                        z-index: map-get($order, 'table', 'freezeColumn');
+                        background-color: map-get($color, 'table', 'table-title');
+                    }
+                }
+            }
+
+            .table__body {
+                .table__cell {
+                    &:first-child {
+                        position: sticky;
+                        left: 0;
+                        z-index: map-get($order, 'table', 'freezeColumn');
+                        width: 100px;
+                        max-width: 140px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+@import '~@assets/css/variables';
+
+$offset: 187;
+$duration: 1.4s;
+
+.loading {
+    &__backdrop {
+        background-color: map-get($color, 'modal', 'backdrop');
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: map-get($order, 'loading');
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__spinner {
+        animation: rotator $duration linear infinite;
+    }
+
+    &__path {
+        stroke: map-get($color, 'global', 'white');
+        stroke-dasharray: $offset;
+        stroke-dashoffset: 0;
+        transform-origin: center;
+        animation: dash $duration ease-in-out infinite;
+    }
+
+    &__label {
+        color: map-get($color, 'global', 'white');
+        @include font-size(map-get($fontSize, 'normal'));
+        margin-top: 15px;
+        text-align: center;
+        line-height: 2em;
+    }
+}
+
+@keyframes rotator {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(270deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: $offset;
+    }
+    50% {
+        stroke-dashoffset: calc($offset / 4);
+        transform: rotate(135deg);
+    }
+    100% {
+        stroke-dashoffset: $offset;
+        transform: rotate(450deg);
+    }
+}

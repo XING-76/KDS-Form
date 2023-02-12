@@ -1,0 +1,31 @@
+$order: (
+    header: (
+        default: 20,
+        icon: 10
+    ),
+    table: (
+        freezeColumn: 10,
+        freezeRow: 30
+    ),
+    breadcrumbs: 10,
+    calendar: (
+        default: 10,
+        dateBetween: 10,
+        selectedDate: 10
+    ),
+    navigation: (
+        default: 10,
+        fullText: 10
+    ),
+    modal: 50,
+    uploadImage: (
+        hiddenInput: -10,
+        deleteIcon: 10
+    ),
+    historyRecord: 10,
+    pmsu01: (
+        default: 10
+    ),
+    searchableDropDown: 10,
+    loading: 60
+);

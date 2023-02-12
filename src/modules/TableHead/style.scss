@@ -1,0 +1,57 @@
+@import '~@assets/css/variables';
+
+.table__header {
+    display: table-header-group;
+    background-color: map-get($color, 'table', 'table-title');
+
+    .table__row {
+        border-radius: 4px 4px 0 0;
+    }
+
+    .table__cell {
+        min-height: 50px;
+        color: map-get($color, 'global', 'white');
+        white-space: nowrap;
+        border: 0.5px solid map-get($color, 'global', 'light-grey');
+
+        &:first-child {
+            border-radius: 4px 0 0 0;
+        }
+
+        &:last-child {
+            border-radius: 0 4px 0 0;
+        }
+    }
+
+    .table__cell_checkbox {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        min-width: 80px;
+        @include font-size(map-get($fontSize, 'large'));
+        background-color: map-get($color, 'global', 'white');
+
+        input:checked {
+            & ~ .checkMark {
+                background-color: map-get($color, 'global', 'white');
+
+                &:after {
+                    border-color: map-get($color, 'input', 'checkbox-checked');
+                }
+            }
+        }
+
+        button {
+            color: map-get($color, 'input', 'text');
+            padding: 0;
+            margin: 0;
+            width: 20px;
+            height: 20px;
+        }
+
+        button:hover {
+            color: darken(map-get($color, 'input', 'text'), 5%);
+        }
+    }
+}

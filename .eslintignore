@@ -1,0 +1,17 @@
+!**/.eslintrc*
+node_modules*
+dist
+*.svg
+*.ico
+*.json
+.gitignore
+*.md
+*.log
+*.lock
+*.scss
+*.eot
+*.ttf
+*.woff
+*.png
+*.jpg
+webpack.config.ts

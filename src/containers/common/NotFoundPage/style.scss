@@ -1,0 +1,29 @@
+@import '~@assets/css/variables';
+
+.notFoundPage__wrapper {
+    text-align: center;
+
+    h2 {
+        color: map-get($color, 'global', 'primary');
+        margin: 40px 0 10px;
+        letter-spacing: 2px;
+        @include font-size(map-get($fontSize, 'max-large'));
+    }
+
+    h3 {
+        color: map-get($color, 'global', 'secondary-focus');
+        margin: 10px 0 20px;
+        @include font-size(map-get($fontSize, 'small'));
+    }
+
+    p {
+        margin: 40px 0;
+        color: map-get($color, 'global', 'text');
+        @include font-size(map-get($fontSize, 'extra-small'));
+    }
+
+    .button__back {
+        height: 50px;
+        width: 160px;
+    }
+}

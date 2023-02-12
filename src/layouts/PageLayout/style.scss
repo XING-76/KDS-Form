@@ -1,0 +1,60 @@
+@import '~@assets/css/variables';
+
+.content__wrapper {
+    background-color: map-get($color, 'global', 'background');
+    transition: map-get($transition, 'default');
+    display: flex;
+    position: relative;
+    width: 100%;
+    // 精簡化樣式
+    // max-height: calc(100vh - map-get($layout, 'header-height'));
+    overflow: auto;
+    // 精簡化樣式
+    justify-content: center;
+
+    .main__content {
+        overflow: auto;
+        padding: 8px 16px;
+        flex-grow: 1;
+        overflow-y: auto;
+        width: calc(100vw - map-get($layout, 'custom-sidebar-width'));
+        // 精簡化樣式
+        // max-height: calc(100vh - map-get($layout, 'header-height') - map-get($layout, 'breadcrumbs-height'));
+        min-width: 600px;
+        height: 100vh;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .calendar__button {
+        position: fixed;
+        right: 0;
+        top: map-get($layout, 'header-height');
+        min-width: 40px;
+        height: 40px;
+        border-radius: 8px 0px 0px 8px;
+        background-color: map-get($color, 'global', 'primary');
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 4px;
+        color: map-get($color, 'global', 'white');
+        cursor: pointer;
+        @include font-size(map-get($fontSize, 'large'));
+        z-index: map-get($order, 'breadcrumbs');
+
+        &.calendarOpen {
+            background-color: map-get($color, 'global', 'white');
+            color: map-get($color, 'global', 'primary');
+            border: map-get($border, 'calendar-button');
+        }
+
+        span {
+            padding: 5px;
+        }
+    }
+}

@@ -1,0 +1,69 @@
+@import '~@assets/css/variables';
+
+.breadcrumbs__wrapper {
+    height: map-get($layout, 'breadcrumbs-height');
+    background-color: map-get($color, 'global', 'white');
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: auto;
+    position: sticky;
+    z-index: map-get($order, 'breadcrumbs');
+    box-shadow: map-get($color, 'shadow', 'breadcrumbs');
+
+    .breadcrumbs__item {
+        display: flex;
+        align-items: center;
+        @include font-size(map-get($fontSize, 'small'));
+        letter-spacing: 1px;
+
+        a {
+            text-decoration: none;
+            outline: none;
+            color: map-get($color, 'global', 'primary');
+
+            &:visited {
+                color: map-get($color, 'global', 'dark-grey');
+            }
+        }
+
+        &:first-child {
+            margin-left: 24px;
+
+            a:hover {
+                color: map-get($color, 'global', 'dark-grey');
+                cursor: pointer;
+            }
+        }
+
+        .breadcrumbs__text {
+            display: block;
+            padding: 4px;
+            transition: map-get($transition, 'default');
+            border-bottom: 1px solid transparent;
+            color: map-get($color, 'global', 'dark-grey');
+        }
+
+        &:last-child {
+            a {
+                color: map-get($color, 'global', 'primary');
+            }
+        }
+
+        @include phone-width {
+            margin: 0;
+            max-width: calc(100% - map-get($layout, 'custom-sidebar-width'));
+
+            &:first-child {
+                margin-left: 8px;
+            }
+        }
+
+        .icon__expand {
+            margin: 0 4px;
+            transform: rotate(-90deg);
+            color: map-get($color, 'global', 'primary-focus');
+            @include font-size(map-get($fontSize, 'extra-large'));
+        }
+    }
+}

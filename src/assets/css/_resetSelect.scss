@@ -1,0 +1,13 @@
+.function__card,
+.pagination__content > .rowsPerPage,
+.pagination,
+.image__preview,
+.navigation__wrapper,
+.dateList,
+.treeItem__wrapper,
+.sidebar__list li a {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}

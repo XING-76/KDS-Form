@@ -1,0 +1,59 @@
+@import '~@assets/css/variables';
+
+.pageButton {
+    cursor: pointer;
+    width: 100%;
+    min-height: 80px;
+    min-width: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 8%;
+    padding-right: 12%;
+    border-radius: map-get($borderRadius, 'small');
+    background-color: map-get($color, 'global', 'white');
+    box-shadow: map-get($color, 'shadow', 'card');
+    white-space: nowrap;
+    transition: map-get($transition, 'default');
+    color: map-get($color, 'board', 'pageButton');
+    @include font-size(map-get($fontSize, 'normal'));
+
+    .arrow_icon {
+        color: map-get($color, 'global', 'white');
+        background-color: map-get($color, 'board', 'pageButton');
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        padding-left: 3px;
+        line-height: 40px;
+        border-radius: 50%;
+    }
+}
+
+.pageButtonGroup {
+    .pageButton:hover {
+        color: map-get($color, 'global', 'white');
+        background-color: map-get($color, 'board', 'pageButton');
+
+        .arrow_icon {
+            color: map-get($color, 'board', 'pageButton');
+            background-color: map-get($color, 'global', 'white');
+        }
+    }
+    &.active {
+        .pageButton {
+            color: map-get($color, 'global', 'white');
+            background-color: map-get($color, 'board', 'pageButton');
+        }
+
+        .arrow_icon {
+            color: map-get($color, 'board', 'pageButton');
+            background-color: map-get($color, 'global', 'white');
+        }
+    }
+
+    &.onlyPageButton {
+        max-width: 496px;
+        margin: 0 auto;
+    }
+}

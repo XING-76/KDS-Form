@@ -1,0 +1,34 @@
+// 電腦
+@mixin pc-width() {
+    @media all and (min-width: map-get($breakpoint,'pc-large')) {
+        @content;
+    }
+}
+
+// 平板橫
+@mixin pad-width() {
+    @media all and (max-width: map-get($breakpoint,'pc')) and (min-width: map-get($breakpoint,'pad')) {
+        @content;
+    }
+}
+
+// 平板-手機
+@mixin vertical-pad-width() {
+    @media all and (max-width: map-get($breakpoint,'pad')) and (min-width: map-get($breakpoint,'phone')) {
+        @content;
+    }
+}
+
+//手機
+@mixin phone-width() {
+    @media all and (max-width: map-get($breakpoint,'phone')) and (min-width: map-get($breakpoint,'phone-small')) {
+        @content;
+    }
+}
+
+//小手機
+@mixin small-phone-width() {
+    @media all and (max-width: map-get($breakpoint,'phone-small')) {
+        @content;
+    }
+}

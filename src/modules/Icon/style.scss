@@ -1,0 +1,137 @@
+$icon-config: (
+    home: (
+        content: '\e91b'
+    ),
+    calendar: (
+        content: '\e90a'
+    ),
+    lock: (
+        content: '\e90d'
+    ),
+    userset: (
+        content: '\e917'
+    ),
+    search: (
+        content: '\e902'
+    ),
+    logout: (
+        content: '\e906'
+    ),
+    pin: (
+        content: '\e907'
+    ),
+    fillPin: (
+        content: '\e908'
+    ),
+    title: (
+        content: '\e922'
+    ),
+    private: (
+        content: '\e90d'
+    ),
+    menu: (
+        content: '\e90f'
+    ),
+    list: (
+        content: '\e912'
+    ),
+    expand: (
+        content: '\e903'
+    ),
+    user: (
+        content: '\e916'
+    ),
+    check: (
+        content: '\e923'
+    ),
+    del: (
+        content: '\e91b'
+    ),
+    printer: (
+        content: '\e925'
+    ),
+    arrow: (
+        content: '\e904'
+    ),
+    edit: (
+        content: '\e91d'
+    ),
+    view: (
+        content: '\e91c'
+    ),
+    filter: (
+        content: '\e91e'
+    ),
+    close: (
+        content: '\e901'
+    ),
+    failed: (
+        content: '\e922'
+    ),
+    zoomOut: (
+        content: '\e90b'
+    ),
+    bell: (
+        content: '\e916'
+    ),
+    download: (
+        content: '\e926'
+    ),
+    downloadODS: (
+        content: '\e918'
+    ),
+    downloadPDF: (
+        content: '\e919'
+    ),
+    downloadEXCEL: (
+        content: '\e91a'
+    ),
+    titleIcon: (
+        content: '\e923'
+    ),
+    warning: (
+        content: '\e921'
+    ),
+    system: (
+        content: '\e90c'
+    ),
+    assets: (
+        content: '\e90b'
+    ),
+    play: (
+        content: '\e905'
+    ),
+    add: (
+        content: '\e91f'
+    ),
+    folder: (
+        content: '\e927'
+    ),
+    link: (
+        content: '\e928'
+    ),
+    reset: (
+        content: '\e929'
+    ),
+    qa: (
+        content: '\e92b'
+    ),
+    accountLock: (
+        content: '\e92c'
+    ),
+    accountUnlock: (
+        content: '\e92d'
+    )
+);
+
+@each $name, $value in $icon-config {
+    $content: map-get($value, content);
+
+    .kangda__icon_#{$name} {
+        &:before {
+            font-family: 'icomoon';
+            cursor: pointer;
+            content: $content;
+        }
+    }
+}

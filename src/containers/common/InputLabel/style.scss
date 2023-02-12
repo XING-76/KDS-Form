@@ -1,0 +1,115 @@
+@import '~@assets/css/variables';
+
+.input__wrapper {
+    display: flex;
+    min-width: 120px;
+    min-height: 56px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+
+    .intervalMark {
+        position: absolute;
+        top: 32px;
+        right: -14px;
+    }
+
+    label {
+        transition: map-get($transition, 'input');
+        font-size: $custom-fontSize;
+        margin-bottom: 8px;
+    }
+
+    input {
+        padding: 8px 16px;
+        border: map-get($border, 'board');
+        border-radius: map-get($borderRadius, 'small');
+        width: calc(100% - 32px); //100% - inputPadding
+        color: map-get($color, 'input', 'text');
+        font-size: map-get($fontSize, 'custom');
+
+        //改變placeholder顏色
+        &::placeholder {
+            color: map-get($color, 'input', 'placeholder'); /* Chrome, Firefox, Opera, Safari 10.1+ */
+        }
+
+        &:-ms-input-placeholder {
+            color: map-get($color, 'input', 'placeholder'); /* Internet Explorer 10-11 */
+        }
+
+        &::-ms-input-placeholder {
+            color: map-get($color, 'input', 'placeholder'); /* Microsoft Edge */
+        }
+
+        &:focus {
+            border: 1px solid map-get($color, 'input', 'focus');
+        }
+
+        &:disabled {
+            background-color: map-get($color, 'input', 'disabled');
+            border: map-get($border, 'board');
+            color: map-get($color, 'input', 'text');
+
+            &::placeholder {
+                color: map-get($color, 'input', 'disabled'); /* Chrome, Firefox, Opera, Safari 10.1+ */
+                opacity: 0.8; /* Firefox */
+            }
+
+            &:-ms-input-placeholder {
+                color: map-get($color, 'input', 'disabled'); /* Internet Explorer 10-11 */
+            }
+
+            &::-ms-input-placeholder {
+                color: map-get($color, 'input', 'disabled'); /* Microsoft Edge */
+            }
+        }
+
+        &.readonly {
+            background-color: map-get($color, 'input', 'disabled');
+            border: map-get($border, 'board');
+        }
+    }
+
+    //Remove Arrows/Spinners
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type='number'] {
+        -moz-appearance: textfield;
+    }
+
+    &.required {
+        label {
+            &:after {
+                content: '*';
+                color: map-get($color, 'status', 'error');
+                margin-left: 1px;
+            }
+        }
+    }
+
+    &.errorInput {
+        position: relative;
+
+        label {
+            color: map-get($color, 'status', 'error');
+        }
+
+        input {
+            border: 1px solid map-get($color, 'status', 'error');
+        }
+
+        p {
+            color: map-get($color, 'status', 'error');
+            display: block;
+            position: absolute;
+            bottom: -16px;
+            @include font-size(map-get($fontSize, 'min-small'));
+        }
+    }
+}

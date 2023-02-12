@@ -1,0 +1,181 @@
+$gray: (
+    'G1': #ffffff,
+    'G2': #f6f6f6,
+    'G3': #e8e8e8,
+    'G4': #c7c7c7,
+    'G5': #87898d,
+    'G6': #585a60,
+    'G7': #2a2b2d,
+    'G8': #000000,
+    'G9': #3f4145,
+    'G10': #fcfcfc
+);
+
+$blue: (
+    'B1': #4b6ba5,
+    'B2': #395891,
+    'B3': #304b7d,
+    'B4': #e8f0ff,
+    'B5': #a6b9df,
+    'B6': #788ebb,
+    'B7': #4f80e4,
+    'B8': #596eaa,
+    'B9': #8794ba,
+    'B10': #eef3ff,
+    'B11': #b7c4ea
+);
+
+$status: (
+    'S1': #ea1919,
+    'S2': #ed8217,
+    'S3': #27e084,
+    'S4': #0199aa
+);
+
+$color: (
+    'global': (
+        'primary': map-get($blue, 'B1'),
+        'primary-focus': map-get($blue, 'B3'),
+        'secondary': map-get($blue, 'B4'),
+        'secondary-focus': map-get($blue, 'B5'),
+        'background': map-get($gray, 'G10'),
+        'text': map-get($gray, 'G7'),
+        'white': map-get($gray, 'G1'),
+        'black': map-get($gray, 'G8'),
+        'dark-grey': map-get($gray, 'G7'),
+        'grey': map-get($gray, 'G6'),
+        'light-grey': map-get($gray, 'G4')
+    ),
+    'status': (
+        'active': map-get($status, 'S2'),
+        'success': map-get($status, 'S3'),
+        'error': map-get($status, 'S1'),
+        'emphasize': map-get($status, 'S4')
+    ),
+    'sidebar': (
+        'background': map-get($blue, 'B8'),
+        'text': map-get($gray, 'G7'),
+        'main-item': map-get($blue, 'B3'),
+        'sub-item': map-get($blue, 'B9'),
+        'sub-sub': map-get($blue, 'B10'),
+        'sub-sub-hover': map-get($blue, 'B5'),
+        'active': map-get($blue, 'B11'),
+        'hover': map-get($blue, 'B11')
+    ),
+    'login': (
+        'title': map-get($gray, 'G1'),
+        'form': map-get($gray, 'G2')
+    ),
+    'board': (
+        'background': map-get($blue, 'B6'),
+        'background-grey': map-get($gray, 'G2'),
+        'background-light': map-get($blue, 'B4'),
+        'board-title': map-get($gray, 'G3'),
+        'content-title': map-get($gray, 'G6'),
+        'board-icon': map-get($blue, 'B6'),
+        'icon-background': map-get($blue, 'B10'),
+        'empty': map-get($gray, 'G3'),
+        'pageButton': map-get($status, 'S4'),
+        'tree-title': map-get($gray, 'G3')
+    ),
+    'input': (
+        'text': map-get($gray, 'G7'),
+        'placeholder': map-get($gray, 'G5'),
+        'disabled': map-get($gray, 'G3'),
+        'hover': map-get($gray, 'G6'),
+        'focus': map-get($gray, 'G7'),
+        'select-focus': map-get($gray, 'G7'),
+        'checkbox-default': map-get($blue, 'B1'),
+        'checkbox-checked': map-get($blue, 'B1'),
+        'image-preview': map-get($gray, 'G4'),
+        'calendar-today': map-get($blue, 'B4'),
+        'upload': map-get($blue, 'B4'),
+        'radio-default': map-get($status, 'S4'),
+        'radio-disabled': map-get($gray, 'G4')
+    ),
+    'modal': (
+        'backdrop': rgba(map-get($gray, 'G7'), 0.5),
+        'confirm': map-get($blue, 'B1'),
+        'system': map-get($status, 'S4'),
+        'success': map-get($status, 'S1'),
+        'icon-success': map-get($status, 'S3'),
+        'icon-warning': map-get($status, 'S2')
+    ),
+    'button': (
+        'cancel': map-get($gray, 'G5'),
+        'cancel-hover': map-get($gray, 'G9'),
+        'light-grey': map-get($gray, 'G4'),
+        'hover': map-get($blue, 'B2'),
+        'focus': map-get($blue, 'B3')
+    ),
+    'calendar': (
+        'border-bottom': map-get($gray, 'G3'),
+        'text': #686f7b,
+        'title': #5d749e,
+        'day-selected': #4f8af3,
+        'days-between': map-get($gray, 'G5'),
+        'days-interval': #f0f0f0,
+        'not-current-month': #c8c8c8
+    ),
+    'pagination': (
+        'default': map-get($blue, 'B1'),
+        'border': map-get($gray, 'G3')
+    ),
+    'navigation': (
+        'background': #eef3ffd9,
+        'text-background': #b7c4ea,
+        'anchor-text': map-get($blue, 'B8'),
+        'toTop-background': map-get($blue, 'B8')
+    ),
+    'chart': (
+        'green': #1bbea7,
+        'yellow': #ffcb00,
+        'blue': map-get($blue, 'B7'),
+        'tiffany': map-get($status, 'S3'),
+        'orange': map-get($status, 'S2'),
+        'background': #f0f5fe
+    ),
+    'table': (
+        'hover': map-get($blue, 'B4'),
+        'table-title': map-get($blue, 'B6'),
+        'table-grid': map-get($gray, 'G3')
+    ),
+    'card': (
+        'blue': map-get($blue, 'B7'),
+        'cyan': #4284b1,
+        'yellow': #ffc744
+    ),
+    'searchableDropDown': (
+        'border': map-get($gray, 'G4'),
+        'hover': map-get($blue, 'B1'),
+        'background-invalid': map-get($gray, 'G3')
+    ),
+    'nestedCheckList': (
+        'border': map-get($gray, 'G4')
+    ),
+    'imageDragDrop': (
+        'label': map-get($blue, 'B6'),
+        'background': map-get($blue, 'B4'),
+        'separator': map-get($gray, 'G4'),
+        'close': map-get($gray, 'G5')
+    ),
+    'shadow': (
+        'header': 0 3px 6px rgba(0, 0, 0, 0.16),
+        'sidebar': 6px 0 6px #294b663b,
+        'header-option': 0px 3px 6px #00000029,
+        'breadcrumbs': 0px 3px 6px #81808029,
+        'content-box': 0px 1px 10px #78787821,
+        'board': 0px 1px 10px #78787849,
+        'board-dark': -1px 1px 12px #7878785e,
+        'board-grey': 1px 3px 7px rgba(120, 120, 120, 0.2),
+        'card': 2px 3px 3px #dddddd,
+        'modal': 0px 1px 10px #78787821,
+        'history-record': 6px 0 6px rgba(82, 89, 95, 0.2),
+        'calendar': -6px 7px 12px rgba(140, 140, 140, 0.15),
+        'login': 5px 6px 6px #3a5689d1,
+        'table': 0px -1px 10px #78787833,
+        'tableRow': 0px 2px 10px #78787833,
+        'searchableDropDown-options': 0px 2px 6px rgba(0, 0, 0, 0.16),
+        'tree-feature': 0px 3px 6px rgba(0, 0, 0, 0.16)
+    )
+);

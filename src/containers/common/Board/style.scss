@@ -1,0 +1,174 @@
+@import '~@assets/css/variables';
+
+.board__wrapper {
+    background-color: map-get($color, 'global', 'white');
+    border-radius: map-get($borderRadius, 'small');
+    box-shadow: map-get($color, 'shadow', 'board');
+    margin-bottom: 8px;
+
+    .center {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .left {
+        justify-content: space-between;
+    }
+
+    .sticky {
+        position: sticky;
+        top: 0;
+        z-index: map-get($order, 'header', 'default');
+    }
+
+    .board__title {
+        background-color: map-get($color, 'board', 'background');
+        border-radius: map-get($borderRadius, 'small') map-get($borderRadius, 'small') 0 0;
+        box-shadow: map-get($color, 'shadow', 'board');
+        display: flex;
+        align-items: center;
+        @include font-size(map-get($fontSize, 'normal'));
+
+        &.expandable {
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .board__title_text {
+            color: map-get($color, 'global', 'white');
+            padding: 8px 24px;
+            flex: 1;
+        }
+
+        .board__icons {
+            margin-right: 24px;
+            @include font-size(map-get($fontSize, 'medium-large'));
+        }
+
+        .icon {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: map-get($color, 'global', 'white');
+            display: inline-block;
+
+            span {
+                @include font-size(map-get($fontSize, 'icon'));
+            }
+
+            &.icon__expand,
+            &.icon_close {
+                max-height: 38px;
+                line-height: 38px;
+                color: map-get($color, 'global', 'white');
+                cursor: pointer;
+                @include font-size(map-get($fontSize, 'small'));
+                transition: map-get($transition, 'default');
+
+                &.expandContent {
+                    transform: rotate(180deg);
+                    line-height: 36px;
+                }
+            }
+        }
+    }
+
+    .content__title {
+        position: relative;
+        color: map-get($color, 'global', 'primary');
+        @include font-size(map-get($fontSize, 'medium'));
+        padding: 8px 8px 0 8px;
+        background-color: map-get($color, 'global', 'white');
+        border-left: map-get($border, 'board');
+        border-right: map-get($border, 'board');
+
+        & .buttonWrapper {
+            margin-right: 8px;
+        }
+
+        &.hideBorder {
+            border: none;
+        }
+
+        &.grey {
+            color: map-get($color, 'board', 'content-title');
+        }
+
+        &.content__title_underline {
+            padding-bottom: 8px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: calc(100% - 48px);
+                left: 24px;
+                bottom: 0;
+                border-bottom: map-get($border, 'board');
+            }
+        }
+    }
+
+    .board__content {
+        overflow: auto;
+        border-top: none;
+        padding: 8px 16px 16px 16px;
+        border: map-get($border, 'board');
+        border-top: none;
+        border-radius: 0 0 map-get($borderRadius, 'small') map-get($borderRadius, 'small');
+        background-color: map-get($color, 'global', 'white');
+
+        // 表單內的第一列marin-top為8;
+        &:not(.pageButtonGroup) {
+            .grid__row {
+                margin-top: calc(0px - map-get($grid, 'row-padding'));
+            }
+
+            & > .grid__row ~ .grid__row {
+                margin-top: 0px;
+            }
+        }
+    }
+
+    &.content__hidden {
+        border-bottom: none;
+
+        .board__title {
+            border-radius: map-get($borderRadius, 'small');
+        }
+
+        .board__content {
+            display: none;
+        }
+
+        .content__title {
+            padding: 0;
+        }
+    }
+
+    &.grey {
+        box-shadow: map-get($color, 'shadow', 'board-grey');
+        background-color: map-get($color, 'board', 'background-grey');
+
+        .board__title {
+            box-shadow: none;
+            @include font-size(map-get($fontSize, 'medium-large'));
+            background-color: map-get($color, 'board', 'background-grey');
+
+            .icon__expand {
+                color: map-get($color, 'global', 'primary');
+            }
+
+            .board__title_text {
+                color: map-get($color, 'global', 'primary');
+                @include font-size(map-get($fontSize, 'medium'));
+            }
+        }
+
+        .board__content {
+            border: none;
+            padding: 8px 16px 16px 16px;
+            background-color: map-get($color, 'board', 'background-grey');
+        }
+    }
+}
