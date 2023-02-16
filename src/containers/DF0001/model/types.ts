@@ -11,6 +11,14 @@ export interface SearchFormField {
     limit: string;
 }
 
+export interface AddFormField {
+    firstName: string;
+    lastName: string;
+    age: string;
+    gender: string;
+    birthDate: string;
+}
+
 export interface SearchResultData {
     id: string;
     firstName: string;
@@ -36,6 +44,7 @@ export interface State {
         themeColor: string;
     };
     searchFormField: SearchFormField;
+    addFormField: AddFormField;
     loadingState: boolean;
     searchResult: Array<SearchResultData>;
     apiStatus: ApiStatus;

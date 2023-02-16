@@ -49,12 +49,12 @@ const PageButtonGroup = (props: Props) => {
                 <PageButton
                     className={pageRoutes.searchForm.isDisplay ? 'active' : ''}
                     onClick={(event: React.MouseEvent) => handleClickCard(event, 'searchForm')}
-                    pageName="示例表格"
+                    pageName="查詢用戶"
                 />
                 <PageButton
                     className={pageRoutes.addForm.isDisplay ? 'active' : ''}
                     onClick={(event: React.MouseEvent) => handleClickCard(event, 'addForm')}
-                    pageName="示例表格二"
+                    pageName="新增用戶"
                 />
             </PageButtonsGroup>
         </Board>

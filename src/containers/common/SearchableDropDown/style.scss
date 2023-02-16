@@ -1,0 +1,154 @@
+@import '~@assets/css/variables';
+
+.searchableDropDown__wrapper {
+    display: flex;
+    min-width: 120px;
+    min-height: 56px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+
+    .intervalMark {
+        position: absolute;
+        top: 32px;
+        right: -14px;
+    }
+
+    &.required {
+        .label {
+            &:after {
+                content: '*';
+                color: map-get($color, 'status', 'error');
+                margin-left: 1px;
+            }
+        }
+    }
+
+    .label {
+        transition: map-get($transition, 'input');
+        font-size: $custom-fontSize;
+        margin-bottom: 8px;
+        min-height: 16px;
+    }
+
+    input {
+        padding: 8px 48px 8px 16px;
+        border: map-get($border, 'board');
+        border-radius: map-get($borderRadius, 'small');
+        width: calc(100% - 64px);
+        color: map-get($color, 'input', 'text');
+        font-size: map-get($fontSize, 'custom');
+        position: relative;
+
+        &::placeholder {
+            color: map-get($color, 'input', 'text'); /* Chrome, Firefox, Opera, Safari 10.1+ */
+        }
+
+        &:-ms-input-placeholder {
+            color: map-get($color, 'input', 'text'); /* Internet Explorer 10-11 */
+        }
+
+        &::-ms-input-placeholder {
+            color: map-get($color, 'input', 'text'); /* Microsoft Edge */
+        }
+
+        &:focus {
+            border: 1px solid map-get($color, 'input', 'focus');
+
+            &::placeholder {
+                color: transparent;
+            }
+
+            &:-ms-input-placeholder {
+                color: transparent;
+            }
+
+            &::-ms-input-placeholder {
+                color: transparent;
+            }
+        }
+
+        &:disabled {
+            background-color: map-get($color, 'input', 'disabled');
+            border: map-get($border, 'board');
+            color: map-get($color, 'input', 'text');
+
+            &::placeholder {
+                color: map-get($color, 'input', 'disabled'); /* Chrome, Firefox, Opera, Safari 10.1+ */
+                opacity: 0.8; /* Firefox */
+            }
+
+            &:-ms-input-placeholder {
+                color: map-get($color, 'input', 'disabled'); /* Internet Explorer 10-11 */
+            }
+
+            &::-ms-input-placeholder {
+                color: map-get($color, 'input', 'disabled'); /* Microsoft Edge */
+            }
+        }
+
+        &.readonly {
+            border: map-get($border, 'board');
+            background-color: map-get($color, 'input', 'disabled');
+        }
+    }
+
+    .arrowDown {
+        display: block;
+        position: absolute;
+        top: 34px;
+        right: 0px;
+        padding-right: 8px;
+        color: map-get($color, 'input', 'text');
+        @include font-size(map-get($fontSize, 'normal'));
+    }
+
+    .searchableDropDown__options {
+        font-size: map-get($fontSize, 'custom');
+        border-radius: map-get($borderRadius, 'small');
+        overflow: auto;
+        user-select: none;
+        transition: map-get($transition, 'menu');
+        background-color: map-get($color, 'global', 'white');
+        position: fixed;
+        border: 1px solid map-get($color, 'searchableDropDown', 'border');
+        box-shadow: map-get($color, 'shadow', 'searchableDropDown-options');
+        z-index: map-get($order, 'modal');
+        max-height: calc(10em + (10 * 16px));
+
+        .option {
+            padding: 8px 16px;
+
+            &:hover,
+            &.previousSelect {
+                background-color: map-get($color, 'searchableDropDown', 'hover');
+                color: map-get($color, 'global', 'white');
+            }
+        }
+
+        &.noMatch {
+            background-color: map-get($color, 'searchableDropDown', 'background-invalid');
+            pointer-events: none;
+        }
+    }
+
+    &.errorInput {
+        position: relative;
+        .label {
+            color: map-get($color, 'status', 'error');
+        }
+
+        input {
+            border: 1px solid map-get($color, 'status', 'error');
+        }
+
+        .errorMessage {
+            color: map-get($color, 'status', 'error');
+            display: block;
+            position: absolute;
+            bottom: -16px;
+            @include font-size(map-get($fontSize, 'min-small'));
+        }
+    }
+}

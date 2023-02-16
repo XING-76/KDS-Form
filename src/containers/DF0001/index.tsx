@@ -4,6 +4,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import PageButtonGroup from './components/PageButtonGroup';
 import SearchForm from './components/SearchForm';
+import AddForm from './components/AddForm';
 import SearchResultTable from './components/SearchResultTable';
 import { PageRoutes } from './model/types';
 import { initPageRoutes, initSearchResultTableTitle } from './service/pageService';
@@ -40,6 +41,8 @@ export default function index() {
             <PageButtonGroup pageRoutes={pageRoutes} setPageRoutes={setPageRoutes} />
 
             {pageRoutes.searchForm.isDisplay && <SearchForm setPageRoutes={setPageRoutes} pageRoutes={pageRoutes} />}
+
+            {pageRoutes.addForm.isDisplay && <AddForm setPageRoutes={setPageRoutes} pageRoutes={pageRoutes} />}
 
             {pageRoutes.searchResult.isDisplay && (
                 <SearchResultTable searchResultTableTitles={searchResultTableTitles} />

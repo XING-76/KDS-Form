@@ -1,10 +1,11 @@
 import { HTTP_STATUS_CODE } from '@configs/serviceConfigs';
 import { ResponseGenerator } from '@containers/common/model/types';
+import { openStatusModal } from '@containers/common/utils/modalUtils';
 import { PayloadAction } from '@reduxjs/toolkit';
 import Common from '@service/common';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { convertResponseOfSearchAPI, getParametersOfSearchAPI } from '../service/dataProcessing';
-import { FETCH_SEARCH, SET_API_STATUS, SET_SEARCH_RESULT, SET_LOADING_STATE } from './index';
+import { FETCH_SEARCH, FETCH_ADD, SET_API_STATUS, SET_SEARCH_RESULT, SET_LOADING_STATE } from './index';
 
 function* fetchSearchUsers(action: PayloadAction<any>) {
     try {
@@ -30,8 +31,21 @@ function* fetchSearchUsers(action: PayloadAction<any>) {
     }
 }
 
+function* fetchAddUser(action: PayloadAction<any>) {
+    try {
+        yield put(SET_LOADING_STATE(true));
+        yield put(openStatusModal('FAIL', '功能尚未開放' || action));
+    } catch (error) {
+        console.error(error);
+        yield put(SET_API_STATUS({ type: 'search', code: error.code }));
+    } finally {
+        yield put(SET_LOADING_STATE(false));
+    }
+}
+
 function* MainSaga() {
     yield takeEvery(FETCH_SEARCH, fetchSearchUsers);
+    yield takeEvery(FETCH_ADD, fetchAddUser);
 }
 
 export { MainSaga };

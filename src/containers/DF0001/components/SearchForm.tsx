@@ -81,7 +81,7 @@ const SearchForm = (props: Props) => {
     return (
         <div className="wrapper">
             <Board
-                title="示例"
+                title="查詢"
                 titlePosition="left"
                 handleToggleExpand={() => handleClickExpand(setPageRoutes, pageRoutes, 'searchForm')}
                 isContentShow={pageRoutes.searchForm.isExpand}
