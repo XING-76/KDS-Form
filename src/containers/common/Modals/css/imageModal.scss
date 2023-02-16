@@ -1,0 +1,74 @@
+@import '~@assets/css/variables';
+
+.photoModal {
+    .photoPreview {
+        position: relative;
+        object-fit: cover;
+        img {
+            max-width: 85vw;
+            background-color: rgb(228, 228, 228);
+            border: map-get($layout, 'imagePreview', 'border') map-get($color, 'global', 'white') solid;
+        }
+
+        .icon__close {
+            position: absolute;
+            @include font-size(map-get($fontSize, 'max-large'));
+            background-color: rgba(255, 255, 255, 0.5);
+            right: map-get($layout, 'imagePreview', 'border');
+            top: map-get($layout, 'imagePreview', 'border');
+
+            &:before {
+                opacity: 1;
+                color: #2a2b2d;
+            }
+        }
+
+        .icon__previous {
+            cursor: pointer;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            border-radius: 50%;
+            width: map-get($layout, 'imagePreview', 'iconWidth');
+            height: map-get($layout, 'imagePreview', 'iconWidth');
+            transform: translate(50%, -50%) rotate(90deg);
+            background-color: #2a2b2d83;
+            text-align: center;
+
+            &:before {
+                @include font-size(map-get($fontSize, 'large'));
+                opacity: 1;
+                color: map-get($color, 'global', 'white');
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .icon__next {
+            cursor: pointer;
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            border-radius: 50%;
+            width: map-get($layout, 'imagePreview', 'iconWidth');
+            height: map-get($layout, 'imagePreview', 'iconWidth');
+            transform: translate(-50%, -50%) rotate(-90deg);
+            background-color: #2a2b2d8d;
+            text-align: center;
+
+            &:before {
+                @include font-size(map-get($fontSize, 'large'));
+                opacity: 1;
+                color: map-get($color, 'global', 'white');
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}

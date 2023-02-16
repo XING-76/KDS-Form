@@ -1,0 +1,94 @@
+@import '~@assets/css/variables';
+
+$statusModal-color-config: (
+    default: (
+        class: 'default',
+        icon_color: map-get($color, 'modal', 'confirm')
+    ),
+    orange: (
+        class: 'orange',
+        icon_color: map-get($color, 'modal', 'icon-warning')
+    )
+);
+
+%modal__icon {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 48px;
+    line-height: 60px;
+}
+
+.inputModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    @include font-size(map-get($fontSize, 'normal'));
+    padding: 16px 24px;
+    min-width: 400px;
+
+    .modalMessage {
+        margin: 8px 0;
+        @include font-size(map-get($fontSize, 'extra-small'));
+    }
+
+    .separator {
+        margin: 8px auto;
+        width: 100%;
+    }
+
+    .modal__inputs {
+        width: 100%;
+
+        textarea {
+            margin-top: 4px;
+            border-radius: map-get($borderRadius, 'small');
+            width: 100%;
+            resize: vertical;
+            @include font-size(map-get($fontSize, 'extra-small'));
+        }
+    }
+
+    .modal__buttonWrapper {
+        width: 100%;
+        max-height: 96px;
+        margin-top: 16px;
+        margin-right: 0;
+
+        button {
+            margin: 0 4px;
+        }
+    }
+
+    @include vertical-pad-width() {
+        min-width: 300px;
+    }
+
+    @include phone-width {
+        min-width: 250px;
+    }
+
+    @include small-phone-width() {
+        min-width: 250px;
+    }
+}
+
+.modal__icon_close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    @include font-size(map-get($fontSize, 'large'));
+}
+
+@each $name, $value in $statusModal-color-config {
+    $class: map-get($value, class);
+    $icon_color: map-get($value, icon_color);
+
+    .modal__icon_#{$class} {
+        margin-top: 40px;
+        @extend %modal__icon;
+        color: $icon_color;
+    }
+}

@@ -76,6 +76,19 @@ export enum StatusModalTypes {
     WARNING = `WARNING`
 }
 
+export type StatusModalContent = {
+    iconColor: string;
+    icon: string;
+    modalMessage: string;
+};
+
+export type StatusModal = {
+    isOpen: boolean;
+    statusModalType: keyof typeof StatusModalTypes;
+    customMessage: string;
+    customNote: string;
+};
+
 export type SearchResultTableTitle = {
     isCheckbox?: boolean;
     function?: string;
@@ -83,6 +96,8 @@ export type SearchResultTableTitle = {
     titleCode: string;
     isDisplay: boolean;
 };
+
+export type StatusModalTypeConfigs = { [key in keyof typeof StatusModalTypes]: StatusModalContent };
 
 export interface State {
     globalStyle: {
@@ -93,6 +108,7 @@ export interface State {
     sidebarStatus: {
         isOpen: boolean;
     };
+    statusModal: StatusModal;
     apiStatus: ApiStatus & {
         failed?: boolean;
         pending?: boolean;

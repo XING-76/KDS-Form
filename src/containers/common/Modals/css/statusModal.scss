@@ -1,0 +1,90 @@
+@import '~@assets/css/variables';
+
+$statusModal-color-config: (
+    default: (
+        class: 'default',
+        icon_color: map-get($color, 'modal', 'confirm')
+    ),
+    red: (
+        class: 'red',
+        icon_color: map-get($color, 'status', 'error')
+    ),
+    green: (
+        class: 'green',
+        icon_color: map-get($color, 'status', 'success')
+    ),
+    orange: (
+        class: 'orange',
+        icon_color: map-get($color, 'status', 'active')
+    )
+);
+
+%modal__icon {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 48px;
+    line-height: 60px;
+}
+
+.statusModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .modal__message {
+        margin-top: 16px;
+        @include font-size(map-get($fontSize, 'normal'));
+
+        p {
+            margin-top: 8px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .modal__message_note {
+        line-height: 20px;
+        color: map-get($color, 'global', 'grey');
+        @include font-size(map-get($fontSize, 'normal'));
+
+        .line:not(:first-child) {
+            margin-top: 8px;
+        }
+    }
+
+    .separator {
+        margin: 16px 0 8px 0;
+        border-bottom: map-get($border, 'board');
+        height: 2px;
+        width: 100%;
+    }
+}
+
+@each $name, $value in $statusModal-color-config {
+    $class: map-get($value, class);
+    $icon_color: map-get($value, icon_color);
+
+    .modal__icon_#{$class} {
+        @extend %modal__icon;
+        color: $icon_color;
+        margin-top: 0;
+
+        &::before {
+            cursor: unset;
+        }
+    }
+}
+
+.modal__icon_close {
+    position: absolute;
+    z-index: map-get($order, 'modal');
+    top: 8px;
+    right: 8px;
+    @include font-size(map-get($fontSize, 'large'));
+}

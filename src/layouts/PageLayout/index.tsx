@@ -1,7 +1,7 @@
 import '@assets/css/_reset.scss';
 import '@assets/css/_resetSelect.scss';
 import { layoutConfigs } from '@configs/layoutConfigs';
-// import StatusModal from '@containers/common/Modals/StatusModal';
+import StatusModal from '@containers/common/Modals/StatusModal';
 import { storesType } from '@containers/reducers';
 import BreadCrumbs from '@layouts/BreadCrumbs';
 // import Sidebar from '@layouts/Sidebar';
@@ -33,7 +33,7 @@ const PageLayout = () => {
 
     return (
         <React.Fragment>
-            {/* <StatusModal /> */}
+            <StatusModal />
             <div className="pageLayout">
                 <Header />
 

@@ -1,0 +1,78 @@
+@import '~@assets/css/variables';
+
+$statusModal-color-config: (
+    default: (
+        class: 'default',
+        icon_color: map-get($color, 'modal', 'confirm')
+    ),
+    orange: (
+        class: 'orange',
+        icon_color: map-get($color, 'modal', 'icon-warning')
+    )
+);
+
+%modal__icon {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 48px;
+    line-height: 60px;
+}
+
+.messageModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 120px;
+    @include font-size(map-get($fontSize, 'normal'));
+
+    .topMessage {
+        margin: 8px 0;
+    }
+
+    .bottomMessage {
+        margin-bottom: 16px;
+    }
+
+    .modal__buttonWrapper {
+        max-height: 96px;
+        margin: 0 auto;
+
+        button {
+            margin: 0 4px;
+        }
+    }
+
+    &.logoutModal {
+        .bottomMessage {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+        }
+
+        .modal__buttonWrapper {
+            width: 100%;
+        }
+    }
+}
+
+.modal__icon_close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    @include font-size(map-get($fontSize, 'large'));
+}
+
+@each $name, $value in $statusModal-color-config {
+    $class: map-get($value, class);
+    $icon_color: map-get($value, icon_color);
+
+    .modal__icon_#{$class} {
+        margin-top: 40px;
+        @extend %modal__icon;
+        color: $icon_color;
+    }
+}

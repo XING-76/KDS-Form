@@ -1,4 +1,4 @@
-import { State } from './types';
+import { State, StatusModalTypes } from './types';
 
 export const userData = {
     parentId: '',
@@ -8,6 +8,13 @@ export const userData = {
     unitId: '',
     unitName: '',
     userId: ''
+};
+
+export const statusModal = {
+    isOpen: false,
+    statusModalType: StatusModalTypes.SUCCESS,
+    customMessage: '',
+    customNote: ''
 };
 
 export const apiStatus = {
@@ -26,5 +33,6 @@ export const initialState: State = {
     sidebarStatus: {
         isOpen: false
     },
+    statusModal,
     apiStatus
 };
