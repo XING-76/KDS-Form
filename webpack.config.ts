@@ -65,11 +65,17 @@ const config: Configuration = {
                             dataUrlCondition: {
                                 maxSize: 10 * 1024
                             }
+                        },
+                        generator: {
+                            filename: 'static/asset/[hash:10][ext][query]'
                         }
                     },
                     {
-                        test: /\.(ttf|woff2?)$/,
-                        type: 'asset/resource'
+                        test: /\.(ttf|woff2?|eot)$/,
+                        type: 'asset/resource',
+                        generator: {
+                            filename: 'static/asset/[hash:10][ext][query]'
+                        }
                     },
                     {
                         test: /\.([jt]sx|[jt]s)?$/,
